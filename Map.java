@@ -13,10 +13,10 @@ public class Map {
 	//Constructor
 	public Map(int width, int height, String mapName){
 		map = new int [width][height];
-		for (int i = 0; i < width; i++)
-			for (int j = 0; j < height; j++)
+		for (int i = 0; i < width; ++i)
+			for (int j = 0; j < height; ++j)
 				map[i][j] = 0;
-		this.setMapName(mapName);
+		this.mapName=mapName;
 	}
 	
 	public String getMapName() {
@@ -30,6 +30,21 @@ public class Map {
 	//Returns the memory position of the array
 	public int[][] getMap(){
 		return map;
+	}
+	
+	/**
+	* @author Gabriel Tofvesson
+	* 
+	* For debugging purposes.
+	*/
+	public String getMapAsText(){
+		String s = "";
+		for(int[] i : map){
+			for(int j : i)
+				s+=j+" ";
+			s+="\r\n"; //Proper linefeed
+		}
+		return s;
 	}
 	
 	public void setMapSpace(int x, int y, int value){
@@ -71,8 +86,8 @@ public class Map {
 	
 	public static void main(String[] args){
 		Map a = new Map(10, 20, "phi");
-		for (int i = 0; i < 10; i++){
-			for (int j = 0; j < 20; j++){
+		for (int i = 0; i < 10; ++i){
+			for (int j = 0; j < 20; ++j){
 				a.setMapSpace(i, j, (i+j)%6);
 				System.out.print(a.getMapSpace(i, j) + " ");
 			}
@@ -80,6 +95,7 @@ public class Map {
 		}
 		System.out.println(a.getMap());
 		System.out.println(a.getMapName());
+		System.out.println(a.getMapAsText());
 		BattleActor d = new BattleActor("Mother", "Hi7");
 		System.out.println(d.getX() + " " + d.getId() + " " + d.getAtk());
 		BattleActor e = new BattleActor("x", "Hi7");

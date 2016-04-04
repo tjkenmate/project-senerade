@@ -12,31 +12,23 @@ public class BattleObject {
 	private String name, id;
 	
 	public BattleObject(int x, int y, String id){
-		this.setX(x);
-		this.setY(y);
-		this.setId(id);
-		this.setName(null);
+		this.x=x;
+		this.y=y;
+		this.id=id;
+		this.name=null;
 	}
 	
 	public BattleObject(int x, int y, String id, String name){
-		this.setX(x);
-		this.setY(y);
-		this.setId(id);
-		this.setName(name);
+		this(x, y, id);
+		this.name=name;
 	}
 	
 	public BattleObject(String id, String name){
-		this.setX(-1);
-		this.setY(-1);
-		this.setId(id);
-		this.setName(name);
+		this(-1, -1, id, name);
 	}
 	
 	public BattleObject(String id){
-		this.setX(-1);
-		this.setY(-1);
-		this.setId(id);
-		this.setName(null);
+		this(-1, -1, id);
 	}
 
 	/**
