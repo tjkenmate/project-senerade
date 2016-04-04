@@ -39,6 +39,10 @@ public class Move {
 			thor.setX(x);
 			thor.setY(y);
 		}
+		else if(move == null){
+			System.out.printf("Error, Dont null on me");
+			move(thor, id);
+		}
 		else{
 			System.out.printf("%s Cant Move There", thor.getName());
 			move(thor, id);
