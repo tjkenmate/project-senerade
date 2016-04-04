@@ -1,5 +1,5 @@
 package com.senerade.game;
-
+@Deprecated
 public abstract class Test {
 	
 	private boolean move[][] = null;
