@@ -32,13 +32,10 @@ public class Move {
 	 */
 	
 	public static void moveTo(BattleObject thor, Map id, int x, int y){
-		if(move != null && move[x][y]){
+		movePossibilitys(thor, thor.getMove(), id);
+		if(move[x][y]){
 			thor.setX(x);
 			thor.setY(y);
-		}
-		else if(move == null){
-			System.out.printf("Error, Dont null on me");
-			move(thor, id);
 		}
 		else{
 			System.out.printf("%s Cant Move There", thor.getName());
@@ -47,8 +44,7 @@ public class Move {
 	}
 	
 	public static void move(BattleObject thor, Map id){
-		if(move == null)
-			movePossibilitys(thor, thor.getMove(), id);
+		movePossibilitys(thor, thor.getMove(), id);
 		int newX = thor.getX(), newY = thor.getY();
 		//Somewhere here goes the player input
 		if(newX != thor.getX() || newY != thor.getY())
