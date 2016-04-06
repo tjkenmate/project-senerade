@@ -1,6 +1,6 @@
 package com.senerade.game;
 
-public class Move {
+public class MoveNotWorking {
 	
 	public static boolean move[][] = null;
 	/**
