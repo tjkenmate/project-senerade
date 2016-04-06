@@ -13,17 +13,14 @@ public class Move {
 		int x = thor.getX();
 		int y = thor.getY();
 		move = new boolean[moveArea-1][moveArea-1];
-		for (int i = 0; i < moveArea; i++)
-			for (int j = 0; j < moveArea; j++){
-				if((j < moveArea/2 && moveArea%2 == 0 && (y - j) > 0) 
-					|| (j < moveArea/2 -1 && moveArea%2 == 1 && (y - j) > 0)){
-					if((i < moveArea/2 && moveArea%2 == 0 && (x - i) > 0) 
-						|| (i < moveArea/2 -1 && moveArea%2 == 1 && (x - i) > 0)){
+		for (int i = 0; i < (moveArea-moveArea%2)/2; i++)
+			for (int j = 0; j < (moveArea-moveArea%2)/2; j++){
+				if(j < (moveArea-moveArea%2)/2 && j < y){
+					if(i < (moveArea-moveArea%2)/2 && i < x)
 						move[i][j] = id.canMove(x - i, y - j);
-					}
-					move[i][j] = id.canMove(x + i - moveArea/2 - moveArea%2, y - j);
+					move[i][j] = id.canMove(x + i - (moveArea-moveArea%2)/2, y - j);
 				}
-				move[i][j] = id.canMove(x + i - moveArea/2 - moveArea%2, y + j - moveArea/2 - moveArea%2);
+				move[i][j] = id.canMove(x + i - (moveArea-moveArea%2)/2, y + j - (moveArea-moveArea%2)/2);
 			}
 	}
 	/**
