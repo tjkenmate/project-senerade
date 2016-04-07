@@ -8,11 +8,11 @@ package com.senerade.game;
  */
 public class Map {
 	private String mapName = "";
-	private int[][] map = null;
+	private byte[][] map = null;
 	
 	//Constructor
 	public Map(int width, int height, String mapName){
-		map = new int [width][height];
+		map = new byte[width][height];
 		for (int i = 0; i < width; ++i)
 			for (int j = 0; j < height; ++j)
 				map[i][j] = 0;
@@ -28,7 +28,7 @@ public class Map {
 	}
 	
 	//Returns the memory position of the array
-	public int[][] getMap(){
+	public byte[][] getMap(){
 		return map;
 	}
 	
@@ -47,11 +47,11 @@ public class Map {
 		return s;
 	}
 	
-	public void setMapSpace(int x, int y, int value){
+	public void setMapSpace(int x, int y, byte value){
 		map[x][y] = value;
 	}
 	
-	public int getMapSpace(int x, int y){
+	public byte getMapSpace(int x, int y){
 		int value = map[x][y];
 		return value;
 	}
