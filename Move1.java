@@ -1,16 +1,20 @@
 package com.senerade.game;
 
-@Deprecated
 public class Move {
 	
-	public static boolean move[][] = null;
+	public Move(BattleObject thor){
+		this.thor=thor;
+	}
+	
+	public final BattleObject thor;
+	public boolean move[][] = null;
 	/**
 	 * Generates a boolean array for a unit
 	 * @param thor
 	 * @param moveArea
 	 * @param id
 	 */
-	public static void movePossibilitys(BattleObject thor, int moveArea, Map id){
+	public void movePossibilitys(int moveArea, Map id){
 		int x = thor.getX();
 		int y = thor.getY();
 		int centerX = (moveArea-1)/2;
@@ -52,7 +56,7 @@ public class Move {
 	 * @param y
 	 */
 	
-	public static void moveTo(BattleObject thor, Map id, int x, int y){
+	public void moveTo(Map id, int x, int y){
 		if(move != null && move[x][y]){
 			thor.setX(x);
 			thor.setY(y);
@@ -67,7 +71,7 @@ public class Move {
 		}
 	}
 	
-	public static void move(BattleObject thor, Map id){
+	public void move(Map id){
 		if(move == null)
 			movePossibilitys(thor, thor.getMove(), id);
 		int newX = thor.getX(), newY = thor.getY();
