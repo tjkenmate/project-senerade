@@ -4,6 +4,7 @@
 package com.senerade.game;
 /**
  * @author Thor Johansson
+ * @author Gabriel Tovesson
  *
  */
 public class Map {
