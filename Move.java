@@ -58,7 +58,7 @@ public class Move {
 		}
 		else if(move == null){
 			System.out.printf("Error, Dont null on me");
-			move(thor, id);
+			moveInital(thor, id);
 		}
 		else{
 			System.out.printf("%s Cant Move There", thor.getName());
@@ -66,7 +66,7 @@ public class Move {
 		}
 	}
 	
-	public static void move(BattleObject thor, Map id){
+	public static void moveInital(BattleObject thor, Map id){
 		if(move == null)
 			movePossibilitys(thor, thor.getMove(), id);
 		int newX = thor.getX(), newY = thor.getY();
@@ -75,4 +75,11 @@ public class Move {
 			moveTo(thor, id, newX, newY);
 		move = null;
 	}
+	
+	public static void move(BattleObject thor, Map id){
+		int newX = thor.getX(), newY = thor.getY();
+		//Somewhere here goes the player input
+		if(newX != thor.getX() || newY != thor.getY())
+			moveTo(thor, id, newX, newY);
+		move = null;
 }
